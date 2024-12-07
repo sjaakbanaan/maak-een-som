@@ -5,6 +5,7 @@ import cubeMaterial from './assets/cube-material.jpg';
 import './App.css';
 
 const App = () => {
+  const defaultText = "Zeg 't maar...";
   const [title, setTitle] = useState('Wie dit leest is gek');
 
   const handleInputChange = (event) => {
@@ -13,11 +14,11 @@ const App = () => {
 
   return (
     <>
-      <h1 className="variable-font-h1">{title}</h1>
+      <h1 className="variable-font-h1">{title || defaultText}</h1>
       <input
         type="text"
         className="fixed-input"
-        placeholder="Zeg 't maar..."
+        placeholder={defaultText}
         onChange={handleInputChange}
         value={title}
       />
