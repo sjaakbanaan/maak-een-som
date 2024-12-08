@@ -50,16 +50,16 @@ body {
     font-size: 8vw;
   }
   0% {
-    transform: translate(-100%, 10vh);
+    transform: translate(-100%, 20vh);
   }
   50% {
-    transform: translate(100vw, 10vh);
+    transform: translate(100vw, 20vh);
   }
   51% {
-    transform: translate(100vw, 76vh);
+    transform: translate(100vw, 70vh);
   }
   100% {
-    transform: translate(-100%, 76vh);
+    transform: translate(-100%, 70vh);
   }
 }
 
