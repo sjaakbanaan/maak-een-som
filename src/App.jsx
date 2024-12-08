@@ -57,15 +57,14 @@ const App = () => {
             className="purple"
             onClick={() => handleThemeChange('purple')}
           />
-          <button className="pink" onClick={() => handleThemeChange('pink')} />
           <button className="red" onClick={() => handleThemeChange('red')} />
+          <button className="pink" onClick={() => handleThemeChange('pink')} />
         </div>
       </div>
       <div className="full-wrapper">
         <Canvas>
           <directionalLight position={[0, 0, 2]} intensity={1} />
           <ambientLight intensity={0.5} />
-          {/* Pass the selected theme color to the Cube */}
           <Cube position={[0, 0, 0]} color={theme} textureUrl={cubeMaterial} />
         </Canvas>
       </div>
