@@ -1,65 +1,29 @@
 import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Cube from './components/Cube';
+import InputHandler from './components/InputHandler';
+import ThemeChanger from './components/ThemeChanger';
 import cubeMaterial from './assets/cube-material.jpg';
 import './App.css';
 
 const App = () => {
-  const defaultText = "Zeg 't maar of maak een som...";
-  const [title, setTitle] = useState('Wie dit leest is gek');
+  const defaultText = '';
+  const [title, setTitle] = useState('Los de som op');
   const [theme, setTheme] = useState('red'); // State for the current theme
-
-  const handleInputChange = (event) => {
-    const input = event.target.value;
-
-    // Check if input is an arithmetic expression (a sum with +, -, * or /)
-    const arithmeticRegex = /^-?\d+(\.\d+)?\s*([+\-*/])\s*-?\d+(\.\d+)?$/;
-
-    if (arithmeticRegex.test(input)) {
-      try {
-        // Evaluate the result of the arithmetic expression
-        // eslint-disable-next-line no-eval
-        const result = eval(input);
-        const formattedResult = new Intl.NumberFormat('nl-NL').format(result);
-
-        setTitle(`${input} = ${formattedResult}`);
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        setTitle('Error in calculation');
-      }
-    } else {
-      setTitle(input);
-    }
-  };
-
-  const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-  };
 
   return (
     <div className={`theme-${theme}`}>
-      <h1 className="variable-font-h1">{title || defaultText}</h1>
+      <h1 className="variable-font-h1 variable-font-color">
+        {title || defaultText}
+      </h1>
       <div className="fixed-input-holder">
-        <input
-          type="text"
-          className="fixed-input"
-          placeholder={defaultText}
-          onChange={handleInputChange}
+        <InputHandler
+          defaultText={defaultText}
+          title={title}
+          setTitle={setTitle}
+          setTheme={setTheme}
         />
-        <div className="color-toggles">
-          {/* Buttons for changing themes */}
-          <button
-            className="green"
-            onClick={() => handleThemeChange('green')}
-          />
-          <button className="blue" onClick={() => handleThemeChange('blue')} />
-          <button
-            className="purple"
-            onClick={() => handleThemeChange('purple')}
-          />
-          <button className="red" onClick={() => handleThemeChange('red')} />
-          <button className="pink" onClick={() => handleThemeChange('pink')} />
-        </div>
+        <ThemeChanger handleThemeChange={setTheme} />
       </div>
       <div className="full-wrapper">
         <Canvas>
