@@ -58,7 +58,7 @@ const InputHandler = ({ defaultText, setTitle, setParty }) => {
         </button>
         {correctCount > 0 && (
           <p className="correct-text variable-font-color">
-            Je hebt er <span>{correctCount}</span> op een rij goed!
+            Je hebt er <span>{correctCount}</span> op rij goed!
           </p>
         )}
       </form>
