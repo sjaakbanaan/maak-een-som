@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const ThemeChanger = ({ handleThemeChange }) => {
-  const themes = ['blue', 'purple', 'red', 'pink'];
+  const themes = ['green', 'blue', 'purple', 'red', 'pink'];
 
   return (
     <div className="color-toggles">

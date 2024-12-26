@@ -14,6 +14,12 @@ body {
   position: relative;
 }
 
+[class^='theme-'] {
+  display: flex;
+  width: 100%;
+  justify-items: center;
+}
+
 .full-wrapper {
   width: 100vw;
   height: 100vh;
@@ -65,63 +71,101 @@ body {
   }
 }
 
-.fixed-input-holder {
-  z-index: 9999;
+.color-toggles {
   position: absolute;
-  top: 24px;
+  top: 16px;
+  right: 016px;
+  display: grid;
+  gap: 0;
+  z-index: 101;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  button {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background-color: red;
+    &.green {
+      background-color: green;
+    }
+    &.purple {
+      background-color: purple;
+    }
+    &.blue {
+      background-color: blue;
+    }
+    &.pink {
+      background-color: pink;
+    }
+  }
+}
+
+.fixed-input-holder {
+  z-index: 100;
+  position: absolute;
+  top: 0;
   left: 0;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  .problem-text {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 24px;
+  padding: 56px;
+  width: 100%;
+  span {
+    color: #fff;
   }
 
-  .fixed-input {
-    font-family: 'Luckiest Guy', sans-serif;
-    width: 320px;
-    padding: 8px;
-    font-size: 18px;
-    background-color: transparent;
-    border-radius: 4px;
-    line-height: 1;
-    z-index: 999999;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  .fixed-input-box {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid green;
+    padding: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    width: fit-content;
 
-  input::placeholder {
-    font-style: italic;
-    opacity: 0.4;
-  }
+    .correct-text,
+    .problem-text {
+      font-size: 42px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
 
-  .color-toggles {
-    margin-top: 16px;
-    display: grid;
-    gap: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    button {
-      cursor: pointer;
-      width: 16px;
-      height: 16px;
+    .correct-text {
+      font-size: 24px;
+      margin-bottom: 0;
+      margin-top: 24px;
+      span {
+        font-size: 36px;
+        display: inline-block;
+        margin: 0 8px;
+      }
+    }
+    .fixed-input {
+      font-family: 'Luckiest Guy', sans-serif;
+      width: 320px;
+      padding: 14px 8px 8px;
+      font-size: 18px;
+      background-color: transparent;
+      border-radius: 4px;
+      line-height: 1;
+      z-index: 999999;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    input::placeholder {
+      font-style: italic;
+      opacity: 0.4;
+    }
+    .submit-button {
+      font-family: 'Luckiest Guy', serif;
+      margin-left: 12px;
+      padding: 14px 16px 8px;
       border: 0;
-      background-color: red;
-      &.green {
-        background-color: green;
-      }
-      &.purple {
-        background-color: purple;
-      }
-      &.blue {
-        background-color: blue;
-      }
-      &.pink {
-        background-color: pink;
-      }
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
     }
   }
 }
@@ -130,12 +174,18 @@ body {
   .variable-font-color {
     color: red;
   }
-  .fixed-input {
+  .fixed-input-box {
     border: 1px solid red;
-    color: red;
-  }
-  input::placeholder {
-    color: red;
+    .fixed-input {
+      border: 1px solid red;
+      color: red;
+    }
+    input::placeholder {
+      color: red;
+    }
+    .submit-button {
+      background-color: red;
+    }
   }
   .full-wrapper {
     background-color: rgba(255, 0, 0, 0.1);
@@ -146,12 +196,18 @@ body {
   .variable-font-color {
     color: blue;
   }
-  .fixed-input {
+  .fixed-input-box {
     border: 1px solid blue;
-    color: blue;
-  }
-  input::placeholder {
-    color: blue;
+    .fixed-input {
+      border: 1px solid blue;
+      color: blue;
+    }
+    input::placeholder {
+      color: blue;
+    }
+    .submit-button {
+      background-color: blue;
+    }
   }
   .full-wrapper {
     background-color: rgba(0, 0, 255, 0.1);
@@ -162,12 +218,19 @@ body {
   .variable-font-color {
     color: pink;
   }
-  .fixed-input {
+  .fixed-input-box {
     border: 1px solid pink;
-    color: pink;
-  }
-  input::placeholder {
-    color: pink;
+    .fixed-input {
+      border: 1px solid pink;
+      color: pink;
+    }
+    input::placeholder {
+      color: pink;
+    }
+    .submit-button {
+      color: #000;
+      background-color: pink;
+    }
   }
   .full-wrapper {
     background-color: rgba(255, 192, 203, 0.1);
@@ -178,12 +241,18 @@ body {
   .variable-font-color {
     color: purple;
   }
-  .fixed-input {
+  .fixed-input-box {
     border: 1px solid purple;
-    color: purple;
-  }
-  input::placeholder {
-    color: purple;
+    .fixed-input {
+      border: 1px solid purple;
+      color: purple;
+    }
+    input::placeholder {
+      color: purple;
+    }
+    .submit-button {
+      background-color: purple;
+    }
   }
   .full-wrapper {
     background-color: rgba(128, 0, 128, 0.1);
@@ -194,12 +263,19 @@ body {
   .variable-font-color {
     color: green;
   }
-  .fixed-input {
+  .fixed-input-box {
     border: 1px solid green;
-    color: green;
-  }
-  input::placeholder {
-    color: green;
+
+    .fixed-input {
+      border: 1px solid green;
+      color: green;
+    }
+    input::placeholder {
+      color: green;
+    }
+    .submit-button {
+      background-color: green;
+    }
   }
   .full-wrapper {
     background-color: rgba(0, 128, 0, 0.1);
