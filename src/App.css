@@ -298,4 +298,10 @@ body {
   h1 {
     display: none;
   }
+  .color-toggles {
+    button {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }

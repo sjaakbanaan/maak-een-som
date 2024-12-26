@@ -6,11 +6,14 @@ import ThemeChanger from './components/ThemeChanger';
 import Confetti from 'react-confetti';
 import cubeMaterial from './assets/cube-material.jpg';
 import './App.css';
+import { randInt } from 'three/src/math/MathUtils.js';
 
 const App = () => {
   const defaultText = '';
+  const themes = ['green', 'blue', 'purple', 'red', 'pink'];
+
   const [title, setTitle] = useState('Los de som op');
-  const [theme, setTheme] = useState('red'); // State for the current theme
+  const [theme, setTheme] = useState(themes[randInt(0, 4)]); // State for the current theme
   const [party, setParty] = useState(false);
 
   return (
@@ -35,7 +38,7 @@ const App = () => {
           />
         </div>
       </div>
-      <ThemeChanger handleThemeChange={setTheme} />
+      <ThemeChanger handleThemeChange={setTheme} themes={themes} />
       <h1 className="variable-font-h1 variable-font-color">
         {title || defaultText}
       </h1>

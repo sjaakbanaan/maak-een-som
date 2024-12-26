@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ThemeChanger = ({ handleThemeChange }) => {
-  const themes = ['green', 'blue', 'purple', 'red', 'pink'];
-
+const ThemeChanger = ({ handleThemeChange, themes }) => {
   return (
     <div className="color-toggles">
       {themes.map((theme) => (
@@ -18,6 +16,7 @@ const ThemeChanger = ({ handleThemeChange }) => {
 
 ThemeChanger.propTypes = {
   handleThemeChange: PropTypes.func.isRequired,
+  themes: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default ThemeChanger;
