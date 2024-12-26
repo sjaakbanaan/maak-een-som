@@ -289,6 +289,7 @@ body {
 
   .fixed-input-holder {
     .fixed-input-box {
+      border: 0;
       .fixed-input {
         width: 120px;
       }
